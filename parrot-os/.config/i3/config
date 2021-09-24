@@ -30,7 +30,7 @@ font pango:Cantarell 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -167,6 +167,25 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 client.focused          #2e3436 #2e3436 #ffffff #2e3436   #2e3436
-exec_always --no-startup-id feh --bg-scale /home/r4sso/Picture/wallapaper/pic.jpg
+exec_always --no-startup-id feh --bg-fill /home/r4sso/Pictures/wallpaper/pic.jpg
 
+gaps inner 20
+gaps outer 5
 
+# Only enable gaps on a workspace when there is at least one container
+smart_gaps on
+
+# Only enable outer gaps when there is exactly one container
+smart_gaps inverse_outer
+
+# Activate smart borders (always)
+smart_borders on
+
+# Activate smart borders (only when there are effectively no gaps)
+smart_borders no_gaps
+
+# Hide edge borders only if there is one window with no gaps
+hide_edge_borders smart_no_gaps
+
+default_border pixel 1
+default_floating_border pixel 1
