@@ -118,7 +118,7 @@ grub-mkconfig -o /boot/grub/grub.cfg || error_exit "Generating grub configuratio
 echo -e "\Adding user...\n"
 useradd -m "$USER" || error_exit "Adding user failed."
 usermod -aG wheel,input,video "$USER" || error_exit "Modifying user failed."
-echo "$USER:$PASSWORD" | chpasswd || error_exit "Setting user password failed."
+echo "$PASSWORD" | passwd --stdin "$USER" || error_exit "Setting user password failed."
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers || error_exit "Modifying sudoers failed."
 
 # Configure network
